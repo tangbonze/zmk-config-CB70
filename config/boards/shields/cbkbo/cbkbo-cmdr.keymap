@@ -1,0 +1,67 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/ext_power.h>
+#include <dt-bindings/zmk/outputs.h>
+
+#define DEFAULT 0
+#define LOWER   1
+#define RAISE   2
+#define SPECIAL 3
+
+#define CMDR(usage) &ch LG(usage) usage
+#define OPTR(usage) &ch LA(usage) usage
+/ {
+	behaviors {
+		ch: cmd_hold {
+			compatible = "zmk,behavior-hold-tap";
+			label = "CMD_HOLD";
+			#binding-cells = <2>;
+			tapping-term-ms = <200>;
+			quick_tap_ms = <0>;
+			flavor = "tap-preferred";
+			bindings = <&kp>, <&kp>;
+		};
+	};
+	
+	keymap {
+		compatible = "zmk,keymap";
+
+		default_layer {
+			bindings = <
+	CMDR(TAB)   CMDR(Q)    CMDR(W)    CMDR(E)     CMDR(R)  CMDR(T)  CMDR(Y)     CMDR(U)  CMDR(I)     CMDR(O)    CMDR(P)    CMDR(MINUS)
+	OPTR(BSPC)   CMDR(A)    CMDR(S)    CMDR(D)     CMDR(F)  CMDR(G)  CMDR(H)     CMDR(J)  CMDR(K)     CMDR(L)    CMDR(SEMI) CMDR(SQT)
+	&kp ESC CMDR(Z)    CMDR(X)    CMDR(C)     CMDR(V)  CMDR(B)  CMDR(N)     CMDR(M)  CMDR(COMMA) CMDR(DOT)  CMDR(SLASH) CMDR(RET)
+	&mo SPECIAL    &kp LCTRL &kp LALT &kp LGUI &kp LSFT CMDR(SPACE) CMDR(SPACE) &mo RAISE &kp LEFT &kp DOWN &kp UP   &kp RIGHT
+			>;
+		};
+		
+		lower_layer {
+		bindings = <
+CMDR(GRAVE)   CMDR(N1)    CMDR(N2)    CMDR(N3)     CMDR(N4)  CMDR(N5)  CMDR(N6)     CMDR(N7)  CMDR(N8)     CMDR(N9)    CMDR(N0)    CMDR(EQUAL)
+CMDR(DELETE) &trans &trans &trans &trans &trans &trans CMDR(N4)  CMDR(N5)  CMDR(N6) CMDR(RBKT) &trans 
+&trans &trans &trans &trans &trans &trans &trans CMDR(N1)    CMDR(N2)    CMDR(N3) CMDR(BSLH) &trans 
+&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans 
+		>;
+	};
+	
+		raise_layer {
+		bindings = <
+	CMDR(LS(GRAVE))   CMDR(LS(N1))    CMDR(LS(N2))    CMDR(LS(N3))     CMDR(LS(N4))  CMDR(LS(N5))  CMDR(LS(N6))     CMDR(LS(N7))  CMDR(LS(N8))     CMDR(LS(N9))    CMDR(LS(N0))    CMDR(LS(EQUAL))
+	CMDR(GRAVE)   CMDR(N1)    CMDR(N2)    CMDR(N3)     CMDR(N4)  CMDR(N5)  CMDR(N6)     CMDR(N7)  CMDR(N8)     CMDR(N9)    CMDR(N0)    CMDR(EQUAL) 
+	&trans CMDR(LBKT) CMDR(RBKT) CMDR(LS(LBKT)) CMDR(LS(RBKT)) &trans &trans &trans &trans CMDR(LS(BSLH)) CMDR(BSLH) &trans 
+	&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans 
+		>;
+	};
+	
+	special_layer {
+	bindings = <
+&bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &trans &out OUT_USB &trans &trans &trans &reset
+&trans &trans &trans &trans &bootloader &trans &trans &trans &trans &trans &trans &trans 
+&trans &trans &trans &bt BT_CLR &trans &out OUT_BLE &trans &trans &trans &trans &trans &trans 
+&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans 
+	>;
+};
+	
+	};
+};
