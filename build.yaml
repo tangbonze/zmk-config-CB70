@@ -17,3 +17,5 @@ include:
     shield: cb70s_left
   - board: nice_nano_v2
     shield: cb70s_right
+  - board: nice_nano_v2
+    shield: settings_reset
