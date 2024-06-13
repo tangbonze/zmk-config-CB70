@@ -8,7 +8,7 @@
 #define CMDR(usage) &ch LG(usage) usage
 #define OPTR(usage) &ch LA(usage) usage
 
-&out OUT_BLE
+
 
 / {
 	behaviors {
@@ -41,7 +41,7 @@
 			&kp DEL   &kp TAB     &kp Q      &kp W    &kp E     &kp R     &kp T       &kp OUT         &kp Y    &kp U      &kp I    &kp O      &kp P     &kp LBKT   &kp RBKT   &kp BSLH
 			&kp PGUP  &kp CAPS    &kp A      &kp S    &kp D     &kp F     &kp G       &kp OUT         &kp H    &kp J      &kp K    &kp L      &kp SEMI  &kp SQT    &kp OUT    &kp RET
 			&kp PGDN  &kp LSHIFT  &kp OUT    &kp Z    &kp X     &kp C     &kp V       &kp B           &kp OUT  &kp N      &kp M    &kp COMMA  &kp DOT   &kp FSLH   &kp UP     &kp RSHIFT
-			&kp OUT   &kp RCTRL   &kp LCTRL  &kp OUT  &kp LALT  &kp LGUI  &kp LSHIFT  &kp OUT         &kp OUT  &kp SPACE  &kp OUT  &kp RGUI   &kp RALT  &kp LEFT   &kp DOWN   &kp RIGHT  
+			&kp OUT   &kp RCTRL   &kp LCTRL  &kp OUT  &kp LALT  &kp LGUI  &kp LSHIFT  &kp OUT         &kp OUT  &kp SPACE  &kp OUT  &kp RGUI   &out OUT_BLE  &kp LEFT   &kp DOWN   &kp RIGHT  
 			>;
 		};	
 	};
