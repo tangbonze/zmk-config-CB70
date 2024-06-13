@@ -1,11 +1,14 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/outputs.h>
 
 #define DEFAULT 0
 
 
 #define CMDR(usage) &ch LG(usage) usage
 #define OPTR(usage) &ch LA(usage) usage
+
+&out OUT_BLE
 
 / {
 	behaviors {
