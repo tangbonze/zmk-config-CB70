@@ -7,7 +7,7 @@
 		zmk,studio-rpc-uart = &uart1;
 	};
 
-	default_transform: keymap_transform_0 {
+	default_transform: default_transform {
 		compatible = "zmk,matrix-transform";
 		columns = <16>;
 		rows = <5>;
@@ -34,7 +34,7 @@ RC(4,0) RC(4,1) RC(4,2) RC(4,3) RC(4,4) RC(4,5) RC(4,6) RC(4,7) RC(4,8) RC(4,9) 
         display-name = "Default";
 
         kscan = <&kscan0>;
-        transform = <&keymap_transform_0>;
+        transform = <&default_transform>;
 
         keys  //                     w   h    x    y     rot    rx    ry
             = <&key_physical_attrs 100 100    0    0       0     0     0>
